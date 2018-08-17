@@ -15,14 +15,52 @@ public class SqlChanger extends SqlChangerView{
     
     public SqlChanger(){
         btnResult.addActionListener(analyListener);
+        btnCbInputResult.addActionListener(changeStrListener);
         init();
     }
 
     public void init(){
+        cbInput.addItem("IN");
+        cbInput.addItem(",");
+        
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setClosable(true);
         setVisible(true);
     }
+    
+    private ActionListener changeStrListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String cbIn = txtCbInput.getText();
+            if (isEmpty(cbIn)) {
+                return ;
+            }
+            
+           String cb = (String)cbInput.getSelectedItem();
+           if (isEmpty(cb)) {
+               cb = "IN";
+           }
+           
+           String fix = "'";
+           if (cbIn.indexOf(",") != -1) {
+               cbIn = cbIn.replaceAll(",", "\r\n");
+           }
+           
+           switch (cbIn) {
+               case "IN":
+                   cbIn = "('" + cbIn + "')";
+                   cbIn = cbIn.replaceAll("\r\n", "','");
+                   break;
+                   
+               case ",":
+                   cbIn = cbIn.replaceAll("\r\n", ",");
+                   break;
+
+               default:
+                   return;
+           }
+        }
+    };
 
     private ActionListener analyListener = new ActionListener() {
         @Override

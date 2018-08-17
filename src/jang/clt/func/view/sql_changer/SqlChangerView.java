@@ -26,6 +26,7 @@ public class SqlChangerView extends AI_IntenalFrame {
     public JTextArea txtCbInput = null;
     public JTextArea txtInputResult = null;
     public JButton btnCbInputResult = null;
+    public JComboBox<String> cbInput = null;
     
     // Query관련
     public JTextArea txtQuery = null;
@@ -46,11 +47,11 @@ public class SqlChangerView extends AI_IntenalFrame {
     	getContentPane().add(panInput);
     	panInput.setLayout(null);
     	
-    	JLabel lblChange = new JLabel("Comma / In Create");
+    	JLabel lblChange = new JLabel("文字変換");
     	lblChange.setBounds(12, 10, 115, 20);
     	panInput.add(lblChange);
     	
-    	JComboBox cbInput = new JComboBox();
+    	cbInput = new JComboBox<String>();
     	cbInput.setBounds(139, 10, 191, 20);
     	panInput.add(cbInput);
     	
@@ -70,12 +71,12 @@ public class SqlChangerView extends AI_IntenalFrame {
     	txtInputResult.setBounds(0, 0, 200, 50);
     	scrInputResult.setViewportView(txtInputResult);
     	
-    	btnCbInputResult = new JButton("Change");
+    	btnCbInputResult = new JButton("変換");
     	btnCbInputResult.setBounds(571, 9, 97, 23);
     	panInput.add( btnCbInputResult);
     	
-    	JButton btnInputClear = new JButton("Clear");
-    	btnInputClear.setBounds(462, 9, 97, 23);
+    	JButton btnInputClear = new JButton("クリア");
+    	btnInputClear.setBounds(428, 9, 121, 23);
     	panInput.add(btnInputClear);
     	
     	JPanel panQuery = new JPanel();
@@ -85,8 +86,8 @@ public class SqlChangerView extends AI_IntenalFrame {
     	getContentPane().add(panQuery);
     	panQuery.setLayout(null);
     	
-    	JLabel lblQuery = new JLabel("Query");
-    	lblQuery.setBounds(12, 10, 100, 20);
+    	JLabel lblQuery = new JLabel("クエリ入力");
+    	lblQuery.setBounds(12, 10, 187, 20);
     	panQuery.add(lblQuery);
     	
     	JScrollPane scrQuery = new JScrollPane();
@@ -97,8 +98,8 @@ public class SqlChangerView extends AI_IntenalFrame {
     	txtQuery.setBounds(0, 0, 200, 50);
     	scrQuery.setViewportView(txtQuery);
     	
-    	JLabel lblParam = new JLabel("Param");
-    	lblParam.setBounds(12, 149, 100, 20);
+    	JLabel lblParam = new JLabel("パラメータ入力");
+    	lblParam.setBounds(12, 149, 202, 20);
     	panQuery.add(lblParam);
     	
     	JScrollPane scrParam = new JScrollPane();
@@ -109,8 +110,8 @@ public class SqlChangerView extends AI_IntenalFrame {
     	txtParam.setBounds(0, 0, 200, 50);
     	scrParam.setViewportView(txtParam);
     	
-    	JLabel lblQueryResult = new JLabel("Result Query");
-    	lblQueryResult.setBounds(12, 270, 100, 20);
+    	JLabel lblQueryResult = new JLabel("クエリ変換結果");
+    	lblQueryResult.setBounds(12, 270, 202, 20);
     	panQuery.add(lblQueryResult);
     	
     	JScrollPane scrQueryResult = new JScrollPane();
@@ -121,12 +122,12 @@ public class SqlChangerView extends AI_IntenalFrame {
     	txtQueryResult.setBounds(0, 0, 200, 50);
     	scrQueryResult.setViewportView(txtQueryResult);
     	
-    	JButton btnQueryClear = new JButton("Clear");
-    	btnQueryClear.setBounds(462, 420, 97, 23);
+    	JButton btnQueryClear = new JButton("クリア");
+    	btnQueryClear.setBounds(338, 420, 145, 23);
     	panQuery.add(btnQueryClear);
     	
-    	btnResult = new JButton("Change");
-    	btnResult.setBounds(571, 420, 97, 23);
+    	btnResult = new JButton("貼り付け");
+    	btnResult.setBounds(505, 420, 163, 23);
     	panQuery.add(btnResult);
     }
 }
